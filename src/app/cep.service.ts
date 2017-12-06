@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Cep} from './cep/cep';
 
 
 @Injectable()
@@ -9,17 +10,31 @@ export class CepService {
 
   }
 
-  search (cep: string) {
+  public search (cep: string) {
 
-    this.http.get(`http://viacep.com.br/ws/${cep}/json/`)
+   return this.http.get(`http://viacep.com.br/ws/${cep}/json/`)
 
         .toPromise()
 
-        .then(response => {
+        .then(response => this.convertResponseCep(response));
 
-          console.log(response)
+  }
 
-        })
+  private convertResponseCep(data): Cep {
+
+    console.log(data)
+
+    let cep = new Cep();
+
+    cep.cep = data.cep;
+    cep.logradouro = data.logradouro;
+    cep.complemento = data.complemento;
+    cep.bairro = data.bairro;
+    cep.numero = data.numero;
+    cep.estado = data.estado;
+    cep.cidade = data.localidade;
+
+    return cep;
 
   }
 

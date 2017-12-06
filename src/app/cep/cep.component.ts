@@ -19,6 +19,11 @@ export class CepComponent implements OnInit {
 
     this.cepCervice.search(this.cep.cep)
 
+        .then(response => {
+
+            this.cep = response
+        })
+
   }
 
 }
