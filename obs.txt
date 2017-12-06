@@ -1,0 +1,98 @@
+Angular-4
+---------
+
+* Para rodar o server na maquina local pelo vagrant no guest rodar
+
+- ng serve --host 192.168.33.10
+
+- no navegador acessar 192.168.33.10:4200 // 4200 porta padrão do angular
+
+------------------------------------------------------------------------------------------
+
+- npm i -g @angular/cli - depois de instalado usar o comando ng no bash
+
+* Gerando aplicação
+
+- ng new project - cria um novo projeto
+
+
+* Criando componentes
+
+- ng g component task-list - cria a folder com o nome do componente e
+4 arquivos, component.css, component.html, component.spec.ts, component.ts e
+já faz o include no app.module.ts
+
+---------------------------------------------------------------------------------------------
+
+* Propriedades reativas ou property binding
+
+- Criando classes para organizar as variaveis e importando elas dentro do com.componente
+criado, para organização das mesmas
+
+// bind - problema que as vezes demora pra renderizar o conteudo
+{{item.name}}
+
+[value] = "item.name" - modo reativo no angular, sem demora pra renderizar
+
+------------------------------------------------------------------------------------------------
+* PIPE Como filtrar dados
+
+OBS: ver como criar esses pipes dentro das pastas dos respectivos modulos
+- ng g pipe nome-do-pipe cria os arquivos para o pipe, usar a logica de programação
+no arquivo nome-do-pipe.pipe.ts
+
+Foi mostrado como fazer os pipes como numeros formatNumber e data formatData
+
+--------------------------------------------------------------------------------------------------
+
+* Trabalhando com diretivas
+
+- ng g directive name-directive
+
+Crias as diretivas e comportamentos do usuario, como enventos de click e tambem pode capturar
+parametros passados por eventos.
+
+Tambem foi criado uma função ao clicar e gerar os paramentros, foram criados getter e setter, para
+armazer na variavel e chamar uma função no setter, desencadeando ações ou comportamentos.
+
+--------------------------------------------------------------------------------------------------
+
+* Criando serviços
+
+- ng g service task
+
+Cria um servico para ser usado pelos componentes, evitado que o componente pai fique armazenando
+as variaves que serão acessiveis aos filhos, ele trabalha com containers e injeção, para isso precisa
+registar em app.module o serviço criado, importando o serviço e registrando no container.
+Como são containers ele são instanciados uma vez apenas.
+
+--------------------------------------------------------------------------------------------------
+
+* Busca por cep
+
+- criado novo projeto angular-busca-cep
+
+- Registrar modulos no app.module
+
+- Api viacep
+
+- Criado uma classe para trabalhar com cep, cep.ts
+
+- Criado um servico de cep ng g service cep
+
+- Importar no app.module o angular-http para chamadas ajax
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
