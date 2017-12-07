@@ -10,6 +10,7 @@ import { Cep } from './cep';
 export class CepComponent implements OnInit {
 
   cep = new Cep();
+  isLoading = false;
 
   constructor(private cepCervice:CepService) { }
 
@@ -17,13 +18,36 @@ export class CepComponent implements OnInit {
 
   search () {
 
+    this.isLoading = true;
+
     this.cepCervice.search(this.cep.cep)
 
-        .then(response => {
+        .then((cep:Cep) => {
 
-            this.cep = response
+            this.isLoading = false;
+            this.cep = cep;
+
         })
 
+        .catch(() => {
+
+          this.cleanCep();
+
+        })
+
+  }
+
+  private cleanCep () {
+
+      this.isLoading = false;
+
+      let cep = this.cep.cep;
+
+      this.cep = new Cep();
+
+      this.cep.cep = cep;
+
+      alert('Cep não encontrado, verifique !');
   }
 
 }
