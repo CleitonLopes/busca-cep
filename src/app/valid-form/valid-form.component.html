@@ -1,0 +1,43 @@
+
+<form #tform="ngForm">
+    <div class="container">
+        <div class="row">
+            <div class="form-group" [ngClass]="{'has-error': !tname.valid && (tname.dirty || tname.touched)}">
+                <label for="nome" class="control-label">Nome</label>
+                <input required type="text" id="nome" class="form-control" name="name" placeholder="nome" [ngModel]="dataForm.name" #tname="ngModel">
+
+                <span *ngIf="tname.errors" class="help-block">
+
+                <ul>
+                    <li *ngIf="tname.errors.required && (tname.dirty || tname.touched)">O nome é requirido</li>
+                </ul>
+
+            </span>
+
+            </div>
+
+            <div class="form-group" [ngClass]="{'has-error': !temail.valid && (temail.dirty || temail.touched)}">
+                <label for="email">Email</label>
+                <input required type="email" id="email" class="form-control" name="email" placeholder="email" [ngModel]="dataForm.email" #temail="ngModel" email>
+
+                <span *ngIf="temail.errors && (temail.dirty || temail.touched)" class="help-block">
+
+                <ul>
+                    <li *ngIf="temail.errors.required">O email é requirido</li>
+                    <li *ngIf="temail.errors.email"> Formato inválido para o campo email </li>
+                </ul>
+
+            </span>
+
+            </div>
+
+            <button class="btn btn-primary" type="submit" [disabled]="!tform.valid">Enviar</button>
+
+        </div>
+    </div>
+</form>
+
+<!--retorna true caso tenha algum erro-->
+<!--<div *ngIf="tname.errors">-->
+<!--{{tname.errors.required}}-->
+{{tform.valid}}

@@ -9,19 +9,24 @@ import { CepComponent } from './cep/cep.component';
 
 // services
 import { CepService } from './cep.service';
+import { ValidFormComponent } from './valid-form/valid-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CepComponent
+    CepComponent,
+    ValidFormComponent
   ],
   imports: [
       BrowserModule,
       FormsModule,
       HttpClientModule
   ],
+
   providers: [ CepService ],
   bootstrap: [AppComponent]
+
 })
+
 export class AppModule { }

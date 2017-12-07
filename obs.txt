@@ -70,6 +70,8 @@ Como são containers ele são instanciados uma vez apenas.
 
 * Busca por cep
 
+- Importar em app.module FormsModule se não nem a diretiva ngModule vai funcionar
+
 - criado novo projeto angular-busca-cep
 
 - Registrar modulos no app.module
@@ -82,7 +84,30 @@ Como são containers ele são instanciados uma vez apenas.
 
 - Importar no app.module o angular-http para chamadas ajax
 
+- Criado rotida de consumo de uma apiservice e preenchimento dos campos
 
+--------------------------------------------------------------------------------------------------
+
+* Validação de formulários
+
+- Criado component valid-form para esta aula dentro do mesmo projeto de cep
+
+- Para trabalhar com formularios não esquecer de importar em app.module FormsModule
+
+- TemplateVariable recebe a instancia do dom do elemento obtido
+
+ex: #tname depois no proprio html posso acessar {{tname.className}} para ver as classes que são geradas,
+
+Forma correta de usar é atribuir #tname="ngModel" assim consigo manipular de melhor forma, consigo trabalhar
+com as classes de erros em forma de objeto
+
+- Lembrar de atribuir as propriedades name no html para funcionar as validações da tag form
+
+--------------------------------------------------------------------------------------------------
+
+* Navegação com html
+
+-
 
 
 
